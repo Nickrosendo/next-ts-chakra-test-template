@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 
 import "@root/styles/globals.css";
 
-import { defaultTheme } from '@root/themes'
+import { defaultTheme } from "@root/themes";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
