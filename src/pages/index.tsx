@@ -1,20 +1,11 @@
-import {
-  ChakraProvider,
-  cookieStorageManager,
-  localStorageManager,
-  Heading,
-  Box,
-} from "@chakra-ui/react";
+import { Heading, Box } from "@chakra-ui/react";
 import type { NextPage } from "next";
 
-import { defaultTheme } from "@root/themes";
+import { ThemeContainer } from "@root/components";
 
 const Home: NextPage = ({ cookies }) => {
-  const colorModeManager =
-    typeof cookies === "string" ? cookieStorageManager : localStorageManager;
-
   return (
-    <ChakraProvider theme={defaultTheme} colorModeManager={colorModeManager}>
+    <ThemeContainer>
       <Box
         role="main"
         display="flex"
@@ -24,16 +15,8 @@ const Home: NextPage = ({ cookies }) => {
       >
         <Heading textAlign="center"> hello world </Heading>
       </Box>
-    </ChakraProvider>
+    </ThemeContainer>
   );
 };
 
 export default Home;
-
-export function getServerSideProps({ req }) {
-  return {
-    props: {
-      cookies: req.headers.cookie ?? "",
-    },
-  };
-}
