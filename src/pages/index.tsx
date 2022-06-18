@@ -3,9 +3,13 @@ import type { NextPage } from "next";
 
 import { ThemeContainer } from "@root/components";
 
-const Home: NextPage = ({ cookies }) => {
+export interface HomeProps {
+  cookies?: string;
+}
+
+const Home: NextPage<HomeProps> = ({ cookies = "" }) => {
   return (
-    <ThemeContainer>
+    <ThemeContainer cookies={cookies}>
       <Box
         role="main"
         display="flex"
